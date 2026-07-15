@@ -1,0 +1,16 @@
+services:
+  taler-merchant:
+    restart: unless-stopped
+    image: rachyand/taler-merchant:1.6.9
+    environment:
+      TALER_MERCHANT_PORT: 9966
+      TALER_MERCHANT_BASE_URL: "https://${BTCPAY_HOST}/taler-merchant/"
+      TALER_MERCHANT_DB_HOST: postgres
+      TALER_MERCHANT_DB_PORT: 5432
+      TALER_MERCHANT_DB_USER: postgres
+      TALER_MERCHANT_DB_PASSWORD: ""
+      TALER_MERCHANT_DB_NAME: talermerchant${NBITCOIN_NETWORK:-regtest}
+    expose:
+      - "9966"
+    links:
+      - postgres

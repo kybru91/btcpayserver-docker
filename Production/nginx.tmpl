@@ -51,6 +51,19 @@
 	}
 		{{ end }}
 
+		{{ if (eq $serviceName "taler-merchant") }}
+	location ~ ^/taler-merchant/(private|webui|management|instances/[^/]+/private)(/|$) {
+		return 403;
+	}
+	location /taler-merchant/ {
+		proxy_pass http://taler-merchant:9966/;
+		proxy_set_header Host $host;
+		proxy_set_header X-Forwarded-Host $host;
+		proxy_set_header X-Forwarded-Proto https;
+		proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+	}
+		{{ end }}
+
 		{{ if (eq $serviceName "joinmarket") }}
 		location /obwatch/ {
 		proxy_pass http://joinmarket:62601/;
