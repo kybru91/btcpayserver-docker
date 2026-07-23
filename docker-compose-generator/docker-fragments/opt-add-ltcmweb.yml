@@ -2,12 +2,16 @@ services:
   btcpayserver:
     environment:
       BTCPAY_LTC_MWEB_DAEMON_URI: http://mwebd:12345
+    depends_on:
+      - mwebd
   mwebd:
     restart: unless-stopped
     container_name: mwebd
     image: hectorchu1/mwebd
     volumes:
       - "mwebd_datadir:/data"
+    depends_on:
+      - litecoind
 volumes:
   mwebd_datadir:
 required:
