@@ -802,6 +802,11 @@ namespace DockerFileBuildHelper
                     dockerInfo.GitLink = "https://github.com/bisoncraft/btcpayserver-decred-plugin";
                     dockerInfo.GitRef = $"v{image.Tag}";
                     break;
+                case "rachyand/taler-merchant":
+                    dockerInfo.DockerFilePath = $"docker/taler-merchant/Dockerfile";
+                    dockerInfo.GitLink = "https://github.com/rachyandco/taler-btcpayserver-plugin";
+                    dockerInfo.GitRef = $"master";
+                    break;
                 default:
                     if (firstTry)
                     {

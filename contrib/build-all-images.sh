@@ -81,38 +81,6 @@ docker build -f "$DOCKERFILE" -t "kamigawabul/docker-bitcoingold:0.15.2" .
 cd - && cd ..
 
 
-# Build lightning
-# https://raw.githubusercontent.com/btcpayserver/lightning/basedon-v26.06.1/Dockerfile
-DOCKERFILE="Dockerfile"
-# https://raw.githubusercontent.com/btcpayserver/lightning/basedon-v26.06.1/Dockerfile
-[[ "$(uname -m)" == "armv7l" ]] && DOCKERFILE="Dockerfile"
-# https://raw.githubusercontent.com/btcpayserver/lightning/basedon-v26.06.1/Dockerfile
-[[ "$(uname -m)" == "aarch64" ]] && DOCKERFILE="Dockerfile"
-echo "Building btcpayserver/lightning:v26.06.1"
-git clone https://github.com/btcpayserver/lightning lightning
-cd lightning
-git checkout basedon-v26.06.1
-cd "$(dirname $DOCKERFILE)"
-docker build -f "$DOCKERFILE" -t "btcpayserver/lightning:v26.06.1" .
-cd - && cd ..
-
-
-# Build rtl
-# https://raw.githubusercontent.com/Ride-The-Lightning/RTL/v0.15.4/Dockerfile
-DOCKERFILE="Dockerfile"
-# https://raw.githubusercontent.com/Ride-The-Lightning/RTL/v0.15.4/Dockerfile
-[[ "$(uname -m)" == "armv7l" ]] && DOCKERFILE="Dockerfile"
-# https://raw.githubusercontent.com/Ride-The-Lightning/RTL/v0.15.4/Dockerfile
-[[ "$(uname -m)" == "aarch64" ]] && DOCKERFILE="Dockerfile"
-echo "Building shahanafarooqui/rtl:v0.15.4"
-git clone https://github.com/Ride-The-Lightning/RTL rtl
-cd rtl
-git checkout v0.15.4
-cd "$(dirname $DOCKERFILE)"
-docker build -f "$DOCKERFILE" -t "shahanafarooqui/rtl:v0.15.4" .
-cd - && cd ..
-
-
 # Build eclair
 # https://raw.githubusercontent.com/ACINQ/eclair/v0.7.0/Dockerfile
 DOCKERFILE="Dockerfile"
@@ -246,18 +214,18 @@ cd - && cd ..
 
 
 # Build btcpayserver
-# https://raw.githubusercontent.com/btcpayserver/btcpayserver/v2.4.0/Dockerfile
+# https://raw.githubusercontent.com/btcpayserver/btcpayserver/v2.4.1/Dockerfile
 DOCKERFILE="Dockerfile"
-# https://raw.githubusercontent.com/btcpayserver/btcpayserver/v2.4.0/Dockerfile
+# https://raw.githubusercontent.com/btcpayserver/btcpayserver/v2.4.1/Dockerfile
 [[ "$(uname -m)" == "armv7l" ]] && DOCKERFILE="Dockerfile"
-# https://raw.githubusercontent.com/btcpayserver/btcpayserver/v2.4.0/Dockerfile
+# https://raw.githubusercontent.com/btcpayserver/btcpayserver/v2.4.1/Dockerfile
 [[ "$(uname -m)" == "aarch64" ]] && DOCKERFILE="Dockerfile"
-echo "Building btcpayserver/btcpayserver:2.4.0"
+echo "Building btcpayserver/btcpayserver:2.4.1"
 git clone https://github.com/btcpayserver/btcpayserver btcpayserver
 cd btcpayserver
-git checkout v2.4.0
+git checkout v2.4.1
 cd "$(dirname $DOCKERFILE)"
-docker build -f "$DOCKERFILE" -t "btcpayserver/btcpayserver:2.4.0" .
+docker build -f "$DOCKERFILE" -t "btcpayserver/btcpayserver:2.4.1" .
 cd - && cd ..
 
 
@@ -464,18 +432,18 @@ cd - && cd ..
 
 
 # Build nbxplorer
-# https://raw.githubusercontent.com/dgarage/nbxplorer/v2.6.8/Dockerfile
+# https://raw.githubusercontent.com/dgarage/nbxplorer/v2.6.9/Dockerfile
 DOCKERFILE="Dockerfile"
-# https://raw.githubusercontent.com/dgarage/nbxplorer/v2.6.8/Dockerfile
+# https://raw.githubusercontent.com/dgarage/nbxplorer/v2.6.9/Dockerfile
 [[ "$(uname -m)" == "armv7l" ]] && DOCKERFILE="Dockerfile"
-# https://raw.githubusercontent.com/dgarage/nbxplorer/v2.6.8/Dockerfile
+# https://raw.githubusercontent.com/dgarage/nbxplorer/v2.6.9/Dockerfile
 [[ "$(uname -m)" == "aarch64" ]] && DOCKERFILE="Dockerfile"
-echo "Building nicolasdorier/nbxplorer:2.6.8"
+echo "Building nicolasdorier/nbxplorer:2.6.9"
 git clone https://github.com/dgarage/nbxplorer nbxplorer
 cd nbxplorer
-git checkout v2.6.8
+git checkout v2.6.9
 cd "$(dirname $DOCKERFILE)"
-docker build -f "$DOCKERFILE" -t "nicolasdorier/nbxplorer:2.6.8" .
+docker build -f "$DOCKERFILE" -t "nicolasdorier/nbxplorer:2.6.9" .
 cd - && cd ..
 
 
@@ -801,22 +769,6 @@ docker build -f "$DOCKERFILE" -t "lightninglabs/lightning-terminal:v0.17.0-alpha
 cd - && cd ..
 
 
-# Build mwebd
-# https://raw.githubusercontent.com/ltcmweb/btcpayserver-ltcmweb-plugin/main/Dockerfile
-DOCKERFILE="Dockerfile"
-# https://raw.githubusercontent.com/ltcmweb/btcpayserver-ltcmweb-plugin/main/Dockerfile
-[[ "$(uname -m)" == "armv7l" ]] && DOCKERFILE="Dockerfile"
-# https://raw.githubusercontent.com/ltcmweb/btcpayserver-ltcmweb-plugin/main/Dockerfile
-[[ "$(uname -m)" == "aarch64" ]] && DOCKERFILE="Dockerfile"
-echo "Building hectorchu1/mwebd:latest"
-git clone https://github.com/ltcmweb/btcpayserver-ltcmweb-plugin mwebd
-cd mwebd
-git checkout main
-cd "$(dirname $DOCKERFILE)"
-docker build -f "$DOCKERFILE" -t "hectorchu1/mwebd:latest" .
-cd - && cd ..
-
-
 # Build frontend
 # https://raw.githubusercontent.com/mempool/mempool/v2.5.0/docker/frontend/Dockerfile
 DOCKERFILE="docker/frontend/Dockerfile"
@@ -906,22 +858,6 @@ cd pihole
 git checkout 2025.03.0
 cd "$(dirname $DOCKERFILE)"
 docker build -f "$DOCKERFILE" -t "pihole/pihole:2025.03.0" .
-cd - && cd ..
-
-
-# Build shopify-app-deployer
-# https://raw.githubusercontent.com/btcpayserver/shopify-app/1.8/Dockerfile
-DOCKERFILE="Dockerfile"
-# https://raw.githubusercontent.com/btcpayserver/shopify-app/1.8/Dockerfile
-[[ "$(uname -m)" == "armv7l" ]] && DOCKERFILE="Dockerfile"
-# https://raw.githubusercontent.com/btcpayserver/shopify-app/1.8/Dockerfile
-[[ "$(uname -m)" == "aarch64" ]] && DOCKERFILE="Dockerfile"
-echo "Building btcpayserver/shopify-app-deployer:1.8"
-git clone https://github.com/btcpayserver/shopify-app shopify-app-deployer
-cd shopify-app-deployer
-git checkout 1.8
-cd "$(dirname $DOCKERFILE)"
-docker build -f "$DOCKERFILE" -t "btcpayserver/shopify-app-deployer:1.8" .
 cd - && cd ..
 
 
@@ -1264,6 +1200,82 @@ cd zcash-walletd
 git checkout feat/data-config
 cd "$(dirname $DOCKERFILE)"
 docker build -f "$DOCKERFILE" -t "hhanh00/zcash-walletd:1.1.9" .
+cd - && cd ..
+
+
+# Build shopify-app-deployer
+# https://raw.githubusercontent.com/btcpayserver/shopify-app/1.9/Dockerfile
+DOCKERFILE="Dockerfile"
+# https://raw.githubusercontent.com/btcpayserver/shopify-app/1.9/Dockerfile
+[[ "$(uname -m)" == "armv7l" ]] && DOCKERFILE="Dockerfile"
+# https://raw.githubusercontent.com/btcpayserver/shopify-app/1.9/Dockerfile
+[[ "$(uname -m)" == "aarch64" ]] && DOCKERFILE="Dockerfile"
+echo "Building btcpayserver/shopify-app-deployer:1.9"
+git clone https://github.com/btcpayserver/shopify-app shopify-app-deployer
+cd shopify-app-deployer
+git checkout 1.9
+cd "$(dirname $DOCKERFILE)"
+docker build -f "$DOCKERFILE" -t "btcpayserver/shopify-app-deployer:1.9" .
+cd - && cd ..
+
+
+# Build lightning
+# https://raw.githubusercontent.com/btcpayserver/lightning/basedon-v26.06.1-1/Dockerfile
+DOCKERFILE="Dockerfile"
+# https://raw.githubusercontent.com/btcpayserver/lightning/basedon-v26.06.1-1/Dockerfile
+[[ "$(uname -m)" == "armv7l" ]] && DOCKERFILE="Dockerfile"
+# https://raw.githubusercontent.com/btcpayserver/lightning/basedon-v26.06.1-1/Dockerfile
+[[ "$(uname -m)" == "aarch64" ]] && DOCKERFILE="Dockerfile"
+echo "Building btcpayserver/lightning:v26.06.1-1"
+git clone https://github.com/btcpayserver/lightning lightning
+cd lightning
+git checkout basedon-v26.06.1-1
+cd "$(dirname $DOCKERFILE)"
+docker build -f "$DOCKERFILE" -t "btcpayserver/lightning:v26.06.1-1" .
+cd - && cd ..
+
+
+# Build rtl
+# https://raw.githubusercontent.com/Ride-The-Lightning/RTL/v0.15.4/Dockerfile
+DOCKERFILE="Dockerfile"
+# https://raw.githubusercontent.com/Ride-The-Lightning/RTL/v0.15.4/Dockerfile
+[[ "$(uname -m)" == "armv7l" ]] && DOCKERFILE="Dockerfile"
+# https://raw.githubusercontent.com/Ride-The-Lightning/RTL/v0.15.4/Dockerfile
+[[ "$(uname -m)" == "aarch64" ]] && DOCKERFILE="Dockerfile"
+echo "Building shahanafarooqui/rtl:v0.15.4"
+git clone https://github.com/Ride-The-Lightning/RTL rtl
+cd rtl
+git checkout v0.15.4
+cd "$(dirname $DOCKERFILE)"
+docker build -f "$DOCKERFILE" -t "shahanafarooqui/rtl:v0.15.4" .
+cd - && cd ..
+
+
+# Build mwebd
+# https://raw.githubusercontent.com/ltcmweb/btcpayserver-ltcmweb-plugin/main/Dockerfile
+DOCKERFILE="Dockerfile"
+# https://raw.githubusercontent.com/ltcmweb/btcpayserver-ltcmweb-plugin/main/Dockerfile
+[[ "$(uname -m)" == "armv7l" ]] && DOCKERFILE="Dockerfile"
+# https://raw.githubusercontent.com/ltcmweb/btcpayserver-ltcmweb-plugin/main/Dockerfile
+[[ "$(uname -m)" == "aarch64" ]] && DOCKERFILE="Dockerfile"
+echo "Building hectorchu1/mwebd:latest"
+git clone https://github.com/ltcmweb/btcpayserver-ltcmweb-plugin mwebd
+cd mwebd
+git checkout main
+cd "$(dirname $DOCKERFILE)"
+docker build -f "$DOCKERFILE" -t "hectorchu1/mwebd:latest" .
+cd - && cd ..
+
+
+# Build taler-merchant
+# https://raw.githubusercontent.com/rachyandco/taler-btcpayserver-plugin/master/docker/taler-merchant/Dockerfile
+DOCKERFILE="docker/taler-merchant/Dockerfile"
+echo "Building rachyand/taler-merchant:1.6.9"
+git clone https://github.com/rachyandco/taler-btcpayserver-plugin taler-merchant
+cd taler-merchant
+git checkout master
+cd "$(dirname $DOCKERFILE)"
+docker build -f "$DOCKERFILE" -t "rachyand/taler-merchant:1.6.9" .
 cd - && cd ..
 
 
